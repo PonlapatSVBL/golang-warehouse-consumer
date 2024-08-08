@@ -22,7 +22,7 @@ type SalaryStruct struct {
 	WithdrawAmt  float64 `json:"withdraw_amt" db:"withdraw_amt"`
 }
 
-func GetSummarySalary(param map[string]string) ([]SalaryStruct, error) {
+func GetSummarySalary(param map[string]interface{}) ([]SalaryStruct, error) {
 	var slipReport SlipReportStruct
 	var salarySummary []SalaryStruct
 

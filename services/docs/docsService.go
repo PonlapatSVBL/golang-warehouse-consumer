@@ -60,7 +60,7 @@ type DocsStruct struct {
 	ComplaintDisapproveCount               int16 `json:"complaint_disapprove_count" db:"complaint_disapprove_count"`
 }
 
-func GetSummaryDocs(param map[string]string) ([]DocsStruct, error) {
+func GetSummaryDocs(param map[string]interface{}) ([]DocsStruct, error) {
 	var slipReport SlipReportStruct
 	var docsSummary []DocsStruct
 

@@ -32,6 +32,7 @@ func NewMysql() *mysql {
 		if dbInstance.err != nil {
 			log.Fatalln(dbInstance.err)
 		}
+		fmt.Println("Database MySQL Connected...")
 	}
 
 	return dbInstance
@@ -40,13 +41,15 @@ func NewMysql() *mysql {
 func (mysqlClient mysql) SqlGet(dest interface{}, query string) {
 	err := mysqlClient.db.Get(dest, query)
 	if err != nil {
-		log.Fatalln(err)
+		// log.Fatalln(err)
+		fmt.Println(err)
 	}
 }
 
 func (mysqlClient mysql) SqlList(dest interface{}, query string) {
 	err := mysqlClient.db.Select(dest, query)
 	if err != nil {
-		log.Fatalln(err)
+		// log.Fatalln(err)
+		fmt.Println(err)
 	}
 }

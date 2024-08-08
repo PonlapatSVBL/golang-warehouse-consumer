@@ -39,6 +39,8 @@ func NewBlob() *storageaccount {
 		// Create a client to interact with the blob service
 		blobInstance.client, blobInstance.err = azblob.NewClientWithSharedKeyCredential(serviceURL, cred, nil)
 		handleError(err)
+
+		fmt.Println("Storage Account Connected...")
 	}
 
 	return blobInstance

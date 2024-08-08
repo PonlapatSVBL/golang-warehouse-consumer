@@ -6,7 +6,7 @@ import (
 	"os"
 )
 
-func AppendLog(fileName string, param map[string]string) {
+func AppendLog(fileName string, param map[string]interface{}) {
 	// สร้างชื่อไฟล์ที่มีวันที่และเดือน
 	fileName = fmt.Sprintf("%s-%s.log", fileName, param["year_month"])
 

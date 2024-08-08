@@ -41,7 +41,7 @@ type TimeattendanceStruct struct {
 	LostTimes          int16  `json:"lost_times" db:"lost_times"`
 }
 
-func GetSummaryTimeattendance(param map[string]string) ([]TimeattendanceStruct, error) {
+func GetSummaryTimeattendance(param map[string]interface{}) ([]TimeattendanceStruct, error) {
 	var slipReport SlipReportStruct
 	var timeattendanceSummary []TimeattendanceStruct
 
