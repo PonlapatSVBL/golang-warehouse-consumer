@@ -137,10 +137,14 @@ func GetSummaryTimeattendance(param map[string]interface{}) ([]TimeattendanceStr
             , SUM(CASE WHEN time_attendance_type_lv='QR' THEN 1 ELSE 0 END) AS ta_qr_count
             , SUM(CASE WHEN time_attendance_type_lv='TimeApp' THEN 1 ELSE 0 END) AS ta_timeapp_count
             FROM %s.payroll_time_attendance_transac
-            WHERE server_id = '%s'
-            AND instance_server_id = '%s'
-            AND instance_server_channel_id = '%s'
-            AND DATE_FORMAT(attendance_date, '%%Y-%%m') = '%s'
+            WHERE DATE_FORMAT(attendance_date, '%%Y-%%m') = '%s'
+            AND employee_id IN (
+                SELECT employee_id
+                FROM hms_api.comp_employee
+                WHERE server_id = '%s'
+                AND instance_server_id = '%s'
+                AND instance_server_channel_id = '%s'
+            )
             GROUP BY employee_id
         ) _ta ON (_emp.employee_id = _ta.employee_id)
         LEFT JOIN (
@@ -171,7 +175,7 @@ func GetSummaryTimeattendance(param map[string]interface{}) ([]TimeattendanceStr
     WHERE _branch.server_id = '%s'
     AND _branch.instance_server_id = '%s'
     AND _branch.instance_server_channel_id = '%s'`,
-		param["dbn"], param["server_id"], param["instance_server_id"], param["instance_server_channel_id"], param["year_month"],
+		param["dbn"], param["year_month"], param["server_id"], param["instance_server_id"], param["instance_server_channel_id"],
 		param["dbn"], param["server_id"], param["instance_server_id"], param["instance_server_channel_id"], slipReport.MasterSalaryReportId,
 		param["server_id"], param["instance_server_id"], param["instance_server_channel_id"],
 		param["server_id"], param["instance_server_id"], param["instance_server_channel_id"])
