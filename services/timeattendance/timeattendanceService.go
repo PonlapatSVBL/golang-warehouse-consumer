@@ -8,6 +8,8 @@ import (
 type SlipReportStruct struct {
 	MasterSalaryReportId string `json:"master_salary_report_id" db:"master_salary_report_id"`
 	MasterSalaryMonth    string `json:"master_salary_month" db:"master_salary_month"`
+	SalaryReportStartDt  string `json:"salary_report_start_dt" db:"salary_report_start_dt"`
+	SalaryReportEndDt    string `json:"salary_report_end_dt" db:"salary_report_end_dt"`
 }
 
 type TimeattendanceStruct struct {
@@ -15,30 +17,31 @@ type TimeattendanceStruct struct {
 	BranchCode         string `json:"branch_code" db:"branch_code"`
 	BranchName         string `json:"branch_name" db:"branch_name"`
 	BranchNameEn       string `json:"branch_name_en" db:"branch_name_en"`
-	TaFingerprintCount uint16 `json:"ta_fingerprint_count" db:"ta_fingerprint_count"`
-	TaManualCount      uint16 `json:"ta_manual_count" db:"ta_manual_count"`
-	TaManagerCount     uint16 `json:"ta_manager_count" db:"ta_manager_count"`
-	TaOfflineCount     uint16 `json:"ta_offline_count" db:"ta_offline_count"`
-	TaBeaconCount      uint16 `json:"ta_beacon_count" db:"ta_beacon_count"`
-	TaTimeAdjustCount  uint16 `json:"ta_time_adjust_count" db:"ta_time_adjust_count"`
-	TaImportCount      uint16 `json:"ta_import_count" db:"ta_import_count"`
-	TaLineCheckinCount uint16 `json:"ta_line_checkin_count" db:"ta_line_checkin_count"`
-	TaCheckinCount     uint16 `json:"ta_checkin_count" db:"ta_checkin_count"`
-	TaFacialCount      uint16 `json:"ta_facial_count" db:"ta_facial_count"`
-	TaWifiCount        uint16 `json:"ta_wifi_count" db:"ta_wifi_count"`
-	TaQrCount          uint16 `json:"ta_qr_count" db:"ta_qr_count"`
-	TaTimeappCount     uint16 `json:"ta_timeapp_count" db:"ta_timeapp_count"`
-	TotalTimes         uint16 `json:"total_times" db:"total_times"`
-	IncompleteTimes    uint16 `json:"incomplete_times" db:"incomplete_times"`
-	MorningTimes       uint16 `json:"morning_times" db:"morning_times"`
-	LateTimes          uint16 `json:"late_times" db:"late_times"`
-	LunchOverTimes     uint16 `json:"lunch_over_times" db:"lunch_over_times"`
-	LunchUnderTimes    uint16 `json:"lunch_under_times" db:"lunch_under_times"`
-	EarlyTimes         uint16 `json:"early_times" db:"early_times"`
-	AfterTimes         uint16 `json:"after_times" db:"after_times"`
-	AbsenceTimes       uint16 `json:"absence_times" db:"absence_times"`
-	Absence2Times      uint16 `json:"absence_2_times" db:"absence_2_times"`
-	LostTimes          uint16 `json:"lost_times" db:"lost_times"`
+	TaFingerprintCount uint32 `json:"ta_fingerprint_count" db:"ta_fingerprint_count"`
+	TaManualCount      uint32 `json:"ta_manual_count" db:"ta_manual_count"`
+	TaManagerCount     uint32 `json:"ta_manager_count" db:"ta_manager_count"`
+	TaOfflineCount     uint32 `json:"ta_offline_count" db:"ta_offline_count"`
+	TaBeaconCount      uint32 `json:"ta_beacon_count" db:"ta_beacon_count"`
+	TaTimeAdjustCount  uint32 `json:"ta_time_adjust_count" db:"ta_time_adjust_count"`
+	TaImportCount      uint32 `json:"ta_import_count" db:"ta_import_count"`
+	TaLineCheckinCount uint32 `json:"ta_line_checkin_count" db:"ta_line_checkin_count"`
+	TaCheckinCount     uint32 `json:"ta_checkin_count" db:"ta_checkin_count"`
+	TaFacialCount      uint32 `json:"ta_facial_count" db:"ta_facial_count"`
+	TaWifiCount        uint32 `json:"ta_wifi_count" db:"ta_wifi_count"`
+	TaQrCount          uint32 `json:"ta_qr_count" db:"ta_qr_count"`
+	TaTimeappCount     uint32 `json:"ta_timeapp_count" db:"ta_timeapp_count"`
+	DayTotal           uint32 `json:"day_total" db:"day_total"`
+	IncompleteTimes    uint32 `json:"incomplete_times" db:"incomplete_times"`
+	MorningTimes       uint32 `json:"morning_times" db:"morning_times"`
+	LateTimes          uint32 `json:"late_times" db:"late_times"`
+	LunchOverTimes     uint32 `json:"lunch_over_times" db:"lunch_over_times"`
+	LunchUnderTimes    uint32 `json:"lunch_under_times" db:"lunch_under_times"`
+	EarlyTimes         uint32 `json:"early_times" db:"early_times"`
+	AfterTimes         uint32 `json:"after_times" db:"after_times"`
+	AbsenceTimes       uint32 `json:"absence_times" db:"absence_times"`
+	Absence2Times      uint32 `json:"absence_2_times" db:"absence_2_times"`
+	LostTimes          uint32 `json:"lost_times" db:"lost_times"`
+	TaTotal            uint32 `json:"ta_total" db:"ta_total"`
 }
 
 func GetSummaryTimeattendance(param map[string]interface{}) ([]TimeattendanceStruct, error) {
@@ -49,6 +52,8 @@ func GetSummaryTimeattendance(param map[string]interface{}) ([]TimeattendanceStr
 
 	query := fmt.Sprintf(`SELECT master_salary_report_id
 	, master_salary_month
+    , salary_report_start_dt
+    , salary_report_end_dt
     FROM %s.payroll_master_salary_report
     WHERE server_id = '%s'
     AND instance_server_id = '%s'
@@ -61,6 +66,7 @@ func GetSummaryTimeattendance(param map[string]interface{}) ([]TimeattendanceStr
     , _branch.branch_code
     , IFNULL(_branch.branch_name, '') AS branch_name
     , IFNULL(_branch.branch_name_en, '') AS branch_name_en
+    , IFNULL(_summary.ta_total, 0) AS ta_total
     , IFNULL(_summary.ta_fingerprint_count, 0) AS ta_fingerprint_count
     , IFNULL(_summary.ta_manual_count, 0) AS ta_manual_count
     , IFNULL(_summary.ta_manager_count, 0) AS ta_manager_count
@@ -74,7 +80,7 @@ func GetSummaryTimeattendance(param map[string]interface{}) ([]TimeattendanceStr
     , IFNULL(_summary.ta_wifi_count, 0) AS ta_wifi_count
     , IFNULL(_summary.ta_qr_count, 0) AS ta_qr_count
     , IFNULL(_summary.ta_timeapp_count, 0) AS ta_timeapp_count
-    , IFNULL(_summary.total_times, 0) AS total_times
+    , IFNULL(_summary.day_total, 0) AS day_total
     , IFNULL(_summary.incomplete_times, 0) AS incomplete_times
     , IFNULL(_summary.morning_times, 0) AS morning_times
     , IFNULL(_summary.late_times, 0) AS late_times
@@ -88,20 +94,21 @@ func GetSummaryTimeattendance(param map[string]interface{}) ([]TimeattendanceStr
     FROM hms_api.comp_branch _branch
     LEFT JOIN (
         SELECT _emp.branch_id
-        , SUM(CASE WHEN _ta.time_attendance_type_lv='Fingerprint' THEN 1 ELSE 0 END) AS ta_fingerprint_count 
-        , SUM(CASE WHEN _ta.time_attendance_type_lv='Manual' THEN 1 ELSE 0 END) AS ta_manual_count 
-        , SUM(CASE WHEN _ta.time_attendance_type_lv='Manager' THEN 1 ELSE 0 END) AS ta_manager_count 
-        , SUM(CASE WHEN _ta.time_attendance_type_lv='Offline' THEN 1 ELSE 0 END) AS ta_offline_count 
-        , SUM(CASE WHEN _ta.time_attendance_type_lv='Beacon' THEN 1 ELSE 0 END) AS ta_beacon_count 
-        , SUM(CASE WHEN _ta.time_attendance_type_lv='Time Adjust' THEN 1 ELSE 0 END) AS ta_time_adjust_count 
-        , SUM(CASE WHEN _ta.time_attendance_type_lv='Import' THEN 1 ELSE 0 END) AS ta_import_count 
-        , SUM(CASE WHEN _ta.time_attendance_type_lv='LINE-Checkin' THEN 1 ELSE 0 END) AS ta_line_checkin_count 
-        , SUM(CASE WHEN _ta.time_attendance_type_lv='Checkin' THEN 1 ELSE 0 END) AS ta_checkin_count 
-        , SUM(CASE WHEN _ta.time_attendance_type_lv='Facial' THEN 1 ELSE 0 END) AS ta_facial_count 
-        , SUM(CASE WHEN _ta.time_attendance_type_lv='Wifi' THEN 1 ELSE 0 END) AS ta_wifi_count 
-        , SUM(CASE WHEN _ta.time_attendance_type_lv='QR' THEN 1 ELSE 0 END) AS ta_qr_count 
-        , SUM(CASE WHEN _ta.time_attendance_type_lv='TimeApp' THEN 1 ELSE 0 END) AS ta_timeapp_count
-        , SUM(_gt.total_times) AS total_times
+        , SUM(_ta.ta_total) AS ta_total
+        , SUM(_ta.ta_fingerprint_count) AS ta_fingerprint_count
+        , SUM(_ta.ta_manual_count) AS ta_manual_count
+        , SUM(_ta.ta_manager_count) AS ta_manager_count
+        , SUM(_ta.ta_offline_count) AS ta_offline_count
+        , SUM(_ta.ta_beacon_count) AS ta_beacon_count
+        , SUM(_ta.ta_time_adjust_count) AS ta_time_adjust_count
+        , SUM(_ta.ta_import_count) AS ta_import_count
+        , SUM(_ta.ta_line_checkin_count) AS ta_line_checkin_count
+        , SUM(_ta.ta_checkin_count) AS ta_checkin_count
+        , SUM(_ta.ta_facial_count) AS ta_facial_count
+        , SUM(_ta.ta_wifi_count) AS ta_wifi_count
+        , SUM(_ta.ta_qr_count) AS ta_qr_count
+        , SUM(_ta.ta_timeapp_count) AS ta_timeapp_count
+        , SUM(_gt.day_total) AS day_total
         , SUM(_gt.incomplete_times) AS incomplete_times
         , SUM(_gt.morning_times) AS morning_times
         , SUM(_gt.late_times) AS late_times
@@ -113,19 +120,32 @@ func GetSummaryTimeattendance(param map[string]interface{}) ([]TimeattendanceStr
         , SUM(_gt.absence_2_times) AS absence_2_times
         , SUM(_gt.lost_times) AS lost_times
         FROM hms_api.comp_employee _emp
-        INNER JOIN (
+        LEFT JOIN (
             SELECT employee_id
-            , attendance_date
-            , time_attendance_type_lv
+            , COUNT(time_attendance_transac_id) AS ta_total
+            , SUM(CASE WHEN time_attendance_type_lv='Fingerprint' THEN 1 ELSE 0 END) AS ta_fingerprint_count
+            , SUM(CASE WHEN time_attendance_type_lv='Manual' THEN 1 ELSE 0 END) AS ta_manual_count
+            , SUM(CASE WHEN time_attendance_type_lv='Manager' THEN 1 ELSE 0 END) AS ta_manager_count
+            , SUM(CASE WHEN time_attendance_type_lv='Offline' THEN 1 ELSE 0 END) AS ta_offline_count
+            , SUM(CASE WHEN time_attendance_type_lv='Beacon' THEN 1 ELSE 0 END) AS ta_beacon_count
+            , SUM(CASE WHEN time_attendance_type_lv='Time Adjust' THEN 1 ELSE 0 END) AS ta_time_adjust_count
+            , SUM(CASE WHEN time_attendance_type_lv='Import' THEN 1 ELSE 0 END) AS ta_import_count
+            , SUM(CASE WHEN time_attendance_type_lv='LINE-Checkin' THEN 1 ELSE 0 END) AS ta_line_checkin_count
+            , SUM(CASE WHEN time_attendance_type_lv='Checkin' THEN 1 ELSE 0 END) AS ta_checkin_count
+            , SUM(CASE WHEN time_attendance_type_lv='Facial' THEN 1 ELSE 0 END) AS ta_facial_count
+            , SUM(CASE WHEN time_attendance_type_lv='Wifi' THEN 1 ELSE 0 END) AS ta_wifi_count
+            , SUM(CASE WHEN time_attendance_type_lv='QR' THEN 1 ELSE 0 END) AS ta_qr_count
+            , SUM(CASE WHEN time_attendance_type_lv='TimeApp' THEN 1 ELSE 0 END) AS ta_timeapp_count
             FROM %s.payroll_time_attendance_transac
             WHERE server_id = '%s'
             AND instance_server_id = '%s'
             AND instance_server_channel_id = '%s'
             AND DATE_FORMAT(attendance_date, '%%Y-%%m') = '%s'
+            GROUP BY employee_id
         ) _ta ON (_emp.employee_id = _ta.employee_id)
-        INNER JOIN (
+        LEFT JOIN (
             SELECT employee_id
-            , COUNT(time_attendance_group_transac_id) AS total_times
+            , COUNT(time_attendance_group_transac_id) AS day_total
             , SUM(CASE WHEN work_min_time = work_max_time AND work_time_count > 0 THEN 1 ELSE 0 END) AS incomplete_times
             , SUM(CASE WHEN morning_flag_lv != '00' THEN 1 ELSE 0 END) AS morning_times
             , SUM(CASE WHEN late_flag_lv != '00' THEN 1 ELSE 0 END) AS late_times
