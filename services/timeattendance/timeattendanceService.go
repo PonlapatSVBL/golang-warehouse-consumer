@@ -17,6 +17,7 @@ type TimeattendanceStruct struct {
 	BranchCode         string `json:"branch_code" db:"branch_code"`
 	BranchName         string `json:"branch_name" db:"branch_name"`
 	BranchNameEn       string `json:"branch_name_en" db:"branch_name_en"`
+	TaTotal            uint32 `json:"ta_total" db:"ta_total"`
 	TaFingerprintCount uint32 `json:"ta_fingerprint_count" db:"ta_fingerprint_count"`
 	TaManualCount      uint32 `json:"ta_manual_count" db:"ta_manual_count"`
 	TaManagerCount     uint32 `json:"ta_manager_count" db:"ta_manager_count"`
@@ -41,7 +42,6 @@ type TimeattendanceStruct struct {
 	AbsenceTimes       uint32 `json:"absence_times" db:"absence_times"`
 	Absence2Times      uint32 `json:"absence_2_times" db:"absence_2_times"`
 	LostTimes          uint32 `json:"lost_times" db:"lost_times"`
-	TaTotal            uint32 `json:"ta_total" db:"ta_total"`
 }
 
 func GetSummaryTimeattendance(param map[string]interface{}) ([]TimeattendanceStruct, error) {
