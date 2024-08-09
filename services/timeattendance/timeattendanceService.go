@@ -15,30 +15,30 @@ type TimeattendanceStruct struct {
 	BranchCode         string `json:"branch_code" db:"branch_code"`
 	BranchName         string `json:"branch_name" db:"branch_name"`
 	BranchNameEn       string `json:"branch_name_en" db:"branch_name_en"`
-	TaFingerprintCount int16  `json:"ta_fingerprint_count" db:"ta_fingerprint_count"`
-	TaManualCount      int16  `json:"ta_manual_count" db:"ta_manual_count"`
-	TaManagerCount     int16  `json:"ta_manager_count" db:"ta_manager_count"`
-	TaOfflineCount     int16  `json:"ta_offline_count" db:"ta_offline_count"`
-	TaBeaconCount      int16  `json:"ta_beacon_count" db:"ta_beacon_count"`
-	TaTimeAdjustCount  int16  `json:"ta_time_adjust_count" db:"ta_time_adjust_count"`
-	TaImportCount      int16  `json:"ta_import_count" db:"ta_import_count"`
-	TaLineCheckinCount int16  `json:"ta_line_checkin_count" db:"ta_line_checkin_count"`
-	TaCheckinCount     int16  `json:"ta_checkin_count" db:"ta_checkin_count"`
-	TaFacialCount      int16  `json:"ta_facial_count" db:"ta_facial_count"`
-	TaWifiCount        int16  `json:"ta_wifi_count" db:"ta_wifi_count"`
-	TaQrCount          int16  `json:"ta_qr_count" db:"ta_qr_count"`
-	TaTimeappCount     int16  `json:"ta_timeapp_count" db:"ta_timeapp_count"`
-	TotalTimes         int16  `json:"total_times" db:"total_times"`
-	IncompleteTimes    int16  `json:"incomplete_times" db:"incomplete_times"`
-	MorningTimes       int16  `json:"morning_times" db:"morning_times"`
-	LateTimes          int16  `json:"late_times" db:"late_times"`
-	LunchOverTimes     int16  `json:"lunch_over_times" db:"lunch_over_times"`
-	LunchUnderTimes    int16  `json:"lunch_under_times" db:"lunch_under_times"`
-	EarlyTimes         int16  `json:"early_times" db:"early_times"`
-	AfterTimes         int16  `json:"after_times" db:"after_times"`
-	AbsenceTimes       int16  `json:"absence_times" db:"absence_times"`
-	Absence2Times      int16  `json:"absence_2_times" db:"absence_2_times"`
-	LostTimes          int16  `json:"lost_times" db:"lost_times"`
+	TaFingerprintCount uint16 `json:"ta_fingerprint_count" db:"ta_fingerprint_count"`
+	TaManualCount      uint16 `json:"ta_manual_count" db:"ta_manual_count"`
+	TaManagerCount     uint16 `json:"ta_manager_count" db:"ta_manager_count"`
+	TaOfflineCount     uint16 `json:"ta_offline_count" db:"ta_offline_count"`
+	TaBeaconCount      uint16 `json:"ta_beacon_count" db:"ta_beacon_count"`
+	TaTimeAdjustCount  uint16 `json:"ta_time_adjust_count" db:"ta_time_adjust_count"`
+	TaImportCount      uint16 `json:"ta_import_count" db:"ta_import_count"`
+	TaLineCheckinCount uint16 `json:"ta_line_checkin_count" db:"ta_line_checkin_count"`
+	TaCheckinCount     uint16 `json:"ta_checkin_count" db:"ta_checkin_count"`
+	TaFacialCount      uint16 `json:"ta_facial_count" db:"ta_facial_count"`
+	TaWifiCount        uint16 `json:"ta_wifi_count" db:"ta_wifi_count"`
+	TaQrCount          uint16 `json:"ta_qr_count" db:"ta_qr_count"`
+	TaTimeappCount     uint16 `json:"ta_timeapp_count" db:"ta_timeapp_count"`
+	TotalTimes         uint16 `json:"total_times" db:"total_times"`
+	IncompleteTimes    uint16 `json:"incomplete_times" db:"incomplete_times"`
+	MorningTimes       uint16 `json:"morning_times" db:"morning_times"`
+	LateTimes          uint16 `json:"late_times" db:"late_times"`
+	LunchOverTimes     uint16 `json:"lunch_over_times" db:"lunch_over_times"`
+	LunchUnderTimes    uint16 `json:"lunch_under_times" db:"lunch_under_times"`
+	EarlyTimes         uint16 `json:"early_times" db:"early_times"`
+	AfterTimes         uint16 `json:"after_times" db:"after_times"`
+	AbsenceTimes       uint16 `json:"absence_times" db:"absence_times"`
+	Absence2Times      uint16 `json:"absence_2_times" db:"absence_2_times"`
+	LostTimes          uint16 `json:"lost_times" db:"lost_times"`
 }
 
 func GetSummaryTimeattendance(param map[string]interface{}) ([]TimeattendanceStruct, error) {

@@ -16,48 +16,48 @@ type DocsStruct struct {
 	BranchName   string `json:"branch_name" db:"branch_name"`
 	BranchNameEn string `json:"branch_name_en" db:"branch_name_en"`
 
-	HolidayChangeCount                     int16 `json:"holiday_change_count" db:"holiday_change_count"`
-	HolidayChangeDisapproveCount           int16 `json:"holiday_change_disapprove_count" db:"holiday_change_disapprove_count"`
-	OtWorkCount                            int16 `json:"ot_work_count" db:"ot_work_count"`
-	OtWorkDisapproveCount                  int16 `json:"ot_work_disapprove_count" db:"ot_work_disapprove_count"`
-	TimeAdjustCount                        int16 `json:"time_adjust_count" db:"time_adjust_count"`
-	TimeAdjustDisapproveCount              int16 `json:"time_adjust_disapprove_count" db:"time_adjust_disapprove_count"`
-	TimeLeaveCount                         int16 `json:"time_leave_count" db:"time_leave_count"`
-	TimeLeaveDisapproveCount               int16 `json:"time_leave_disapprove_count" db:"time_leave_disapprove_count"`
-	TimeLeave01Count                       int16 `json:"time_leave_01_count" db:"time_leave_01_count"`
-	TimeLeave02Count                       int16 `json:"time_leave_02_count" db:"time_leave_02_count"`
-	TimeLeave03Count                       int16 `json:"time_leave_03_count" db:"time_leave_03_count"`
-	TimeLeave04Count                       int16 `json:"time_leave_04_count" db:"time_leave_04_count"`
-	TimeLeave05Count                       int16 `json:"time_leave_05_count" db:"time_leave_05_count"`
-	TimeLeave06Count                       int16 `json:"time_leave_06_count" db:"time_leave_06_count"`
-	TimeLeave07Count                       int16 `json:"time_leave_07_count" db:"time_leave_07_count"`
-	TimeLeave08Count                       int16 `json:"time_leave_08_count" db:"time_leave_08_count"`
-	TimeLeave09Count                       int16 `json:"time_leave_09_count" db:"time_leave_09_count"`
-	TimeLeave10Count                       int16 `json:"time_leave_10_count" db:"time_leave_10_count"`
-	TimeLeave11Count                       int16 `json:"time_leave_11_count" db:"time_leave_11_count"`
-	TimeLeave12Count                       int16 `json:"time_leave_12_count" db:"time_leave_12_count"`
-	TimeLeave13Count                       int16 `json:"time_leave_13_count" db:"time_leave_13_count"`
-	TimeLeave14Count                       int16 `json:"time_leave_14_count" db:"time_leave_14_count"`
-	TimeLeave15Count                       int16 `json:"time_leave_15_count" db:"time_leave_15_count"`
-	TimeLeave16Count                       int16 `json:"time_leave_16_count" db:"time_leave_16_count"`
-	TimeLeave17Count                       int16 `json:"time_leave_17_count" db:"time_leave_17_count"`
-	TimeLeave18Count                       int16 `json:"time_leave_18_count" db:"time_leave_18_count"`
-	TimeLeave19Count                       int16 `json:"time_leave_19_count" db:"time_leave_19_count"`
-	TimeLeave20Count                       int16 `json:"time_leave_20_count" db:"time_leave_20_count"`
-	WorkCycleChangeCount                   int16 `json:"work_cycle_change_count" db:"work_cycle_change_count"`
-	WorkCycleChangeDisapproveCount         int16 `json:"work_cycle_change_disapprove_count" db:"work_cycle_change_disapprove_count"`
-	WithdrawDocCount                       int16 `json:"withdraw_doc_count" db:"withdraw_doc_count"`
-	WithdrawDocDisapproveCount             int16 `json:"withdraw_doc_disapprove_count" db:"withdraw_doc_disapprove_count"`
-	PettyCashCount                         int16 `json:"petty_cash_count" db:"petty_cash_count"`
-	PettyCashDisapproveCount               int16 `json:"petty_cash_disapprove_count" db:"petty_cash_disapprove_count"`
-	SalaryCertificateLetterCount           int16 `json:"salary_certificate_letter_count" db:"salary_certificate_letter_count"`
-	SalaryCertificateLetterDisapproveCount int16 `json:"salary_certificate_letter_disapprove_count" db:"salary_certificate_letter_disapprove_count"`
-	WorkCertificateLetterCount             int16 `json:"work_certificate_letter_count" db:"work_certificate_letter_count"`
-	WorkCertificateLetterDisapproveCount   int16 `json:"work_certificate_letter_disapprove_count" db:"work_certificate_letter_disapprove_count"`
-	WelfareCount                           int16 `json:"welfare_count" db:"welfare_count"`
-	WelfareDisapproveCount                 int16 `json:"welfare_disapprove_count" db:"welfare_disapprove_count"`
-	ComplaintCount                         int16 `json:"complaint_count" db:"complaint_count"`
-	ComplaintDisapproveCount               int16 `json:"complaint_disapprove_count" db:"complaint_disapprove_count"`
+	HolidayChangeCount                     uint16 `json:"holiday_change_count" db:"holiday_change_count"`
+	HolidayChangeDisapproveCount           uint16 `json:"holiday_change_disapprove_count" db:"holiday_change_disapprove_count"`
+	OtWorkCount                            uint16 `json:"ot_work_count" db:"ot_work_count"`
+	OtWorkDisapproveCount                  uint16 `json:"ot_work_disapprove_count" db:"ot_work_disapprove_count"`
+	TimeAdjustCount                        uint16 `json:"time_adjust_count" db:"time_adjust_count"`
+	TimeAdjustDisapproveCount              uint16 `json:"time_adjust_disapprove_count" db:"time_adjust_disapprove_count"`
+	TimeLeaveCount                         uint16 `json:"time_leave_count" db:"time_leave_count"`
+	TimeLeaveDisapproveCount               uint16 `json:"time_leave_disapprove_count" db:"time_leave_disapprove_count"`
+	TimeLeave01Count                       uint16 `json:"time_leave_01_count" db:"time_leave_01_count"`
+	TimeLeave02Count                       uint16 `json:"time_leave_02_count" db:"time_leave_02_count"`
+	TimeLeave03Count                       uint16 `json:"time_leave_03_count" db:"time_leave_03_count"`
+	TimeLeave04Count                       uint16 `json:"time_leave_04_count" db:"time_leave_04_count"`
+	TimeLeave05Count                       uint16 `json:"time_leave_05_count" db:"time_leave_05_count"`
+	TimeLeave06Count                       uint16 `json:"time_leave_06_count" db:"time_leave_06_count"`
+	TimeLeave07Count                       uint16 `json:"time_leave_07_count" db:"time_leave_07_count"`
+	TimeLeave08Count                       uint16 `json:"time_leave_08_count" db:"time_leave_08_count"`
+	TimeLeave09Count                       uint16 `json:"time_leave_09_count" db:"time_leave_09_count"`
+	TimeLeave10Count                       uint16 `json:"time_leave_10_count" db:"time_leave_10_count"`
+	TimeLeave11Count                       uint16 `json:"time_leave_11_count" db:"time_leave_11_count"`
+	TimeLeave12Count                       uint16 `json:"time_leave_12_count" db:"time_leave_12_count"`
+	TimeLeave13Count                       uint16 `json:"time_leave_13_count" db:"time_leave_13_count"`
+	TimeLeave14Count                       uint16 `json:"time_leave_14_count" db:"time_leave_14_count"`
+	TimeLeave15Count                       uint16 `json:"time_leave_15_count" db:"time_leave_15_count"`
+	TimeLeave16Count                       uint16 `json:"time_leave_16_count" db:"time_leave_16_count"`
+	TimeLeave17Count                       uint16 `json:"time_leave_17_count" db:"time_leave_17_count"`
+	TimeLeave18Count                       uint16 `json:"time_leave_18_count" db:"time_leave_18_count"`
+	TimeLeave19Count                       uint16 `json:"time_leave_19_count" db:"time_leave_19_count"`
+	TimeLeave20Count                       uint16 `json:"time_leave_20_count" db:"time_leave_20_count"`
+	WorkCycleChangeCount                   uint16 `json:"work_cycle_change_count" db:"work_cycle_change_count"`
+	WorkCycleChangeDisapproveCount         uint16 `json:"work_cycle_change_disapprove_count" db:"work_cycle_change_disapprove_count"`
+	WithdrawDocCount                       uint16 `json:"withdraw_doc_count" db:"withdraw_doc_count"`
+	WithdrawDocDisapproveCount             uint16 `json:"withdraw_doc_disapprove_count" db:"withdraw_doc_disapprove_count"`
+	PettyCashCount                         uint16 `json:"petty_cash_count" db:"petty_cash_count"`
+	PettyCashDisapproveCount               uint16 `json:"petty_cash_disapprove_count" db:"petty_cash_disapprove_count"`
+	SalaryCertificateLetterCount           uint16 `json:"salary_certificate_letter_count" db:"salary_certificate_letter_count"`
+	SalaryCertificateLetterDisapproveCount uint16 `json:"salary_certificate_letter_disapprove_count" db:"salary_certificate_letter_disapprove_count"`
+	WorkCertificateLetterCount             uint16 `json:"work_certificate_letter_count" db:"work_certificate_letter_count"`
+	WorkCertificateLetterDisapproveCount   uint16 `json:"work_certificate_letter_disapprove_count" db:"work_certificate_letter_disapprove_count"`
+	WelfareCount                           uint16 `json:"welfare_count" db:"welfare_count"`
+	WelfareDisapproveCount                 uint16 `json:"welfare_disapprove_count" db:"welfare_disapprove_count"`
+	ComplaintCount                         uint16 `json:"complaint_count" db:"complaint_count"`
+	ComplaintDisapproveCount               uint16 `json:"complaint_disapprove_count" db:"complaint_disapprove_count"`
 }
 
 func GetSummaryDocs(param map[string]interface{}) ([]DocsStruct, error) {
@@ -171,7 +171,7 @@ func GetSummaryDocs(param map[string]interface{}) ([]DocsStruct, error) {
         LEFT JOIN (
             SELECT employee_id
             , COUNT(*) AS holiday_change_count
-            , SUM(CASE WHEN approve_flag != '02' THEN 1 ELSE 0 END) AS holiday_change_disapprove_count
+            , SUM(CASE WHEN approve_flag NOT IN ('02', '03') THEN 1 ELSE 0 END) AS holiday_change_disapprove_count
             FROM %s.payroll_holiday_change
             WHERE instance_server_id = '%s'
             AND instance_server_channel_id = '%s'
@@ -181,7 +181,7 @@ func GetSummaryDocs(param map[string]interface{}) ([]DocsStruct, error) {
         LEFT JOIN (
             SELECT employee_id
             , COUNT(*) AS ot_work_count
-            , SUM(CASE WHEN approve_flag != '02' THEN 1 ELSE 0 END) AS ot_work_disapprove_count
+            , SUM(CASE WHEN approve_flag NOT IN ('02', '03') THEN 1 ELSE 0 END) AS ot_work_disapprove_count
             FROM %s.payroll_ot_work
             WHERE instance_server_id = '%s'
             AND instance_server_channel_id = '%s'
@@ -191,7 +191,7 @@ func GetSummaryDocs(param map[string]interface{}) ([]DocsStruct, error) {
         LEFT JOIN (
             SELECT employee_id
             , COUNT(*) AS time_adjust_count
-            , SUM(CASE WHEN approve_flag != '02' THEN 1 ELSE 0 END) AS time_adjust_disapprove_count
+            , SUM(CASE WHEN approve_flag NOT IN ('02', '03') THEN 1 ELSE 0 END) AS time_adjust_disapprove_count
             FROM %s.payroll_time_adjust
             WHERE instance_server_id = '%s'
             AND instance_server_channel_id = '%s'
@@ -201,7 +201,7 @@ func GetSummaryDocs(param map[string]interface{}) ([]DocsStruct, error) {
         LEFT JOIN (
             SELECT employee_id
             , COUNT(*) AS time_leave_count
-            , SUM(CASE WHEN approve_flag != '02' THEN 1 ELSE 0 END) AS time_leave_disapprove_count
+            , SUM(CASE WHEN approve_flag NOT IN ('02', '03') THEN 1 ELSE 0 END) AS time_leave_disapprove_count
             , SUM(CASE WHEN absence_flag_lv = '01' THEN 1 ELSE 0 END) AS time_leave_01_count
             , SUM(CASE WHEN absence_flag_lv = '02' THEN 1 ELSE 0 END) AS time_leave_02_count
             , SUM(CASE WHEN absence_flag_lv = '03' THEN 1 ELSE 0 END) AS time_leave_03_count
@@ -231,7 +231,7 @@ func GetSummaryDocs(param map[string]interface{}) ([]DocsStruct, error) {
         LEFT JOIN (
             SELECT employee_id
             , COUNT(*) AS work_cycle_change_count
-            , SUM(CASE WHEN approve_flag != '02' THEN 1 ELSE 0 END) AS work_cycle_change_disapprove_count
+            , SUM(CASE WHEN approve_flag NOT IN ('02', '03') THEN 1 ELSE 0 END) AS work_cycle_change_disapprove_count
             FROM %s.payroll_work_cycle_change
             WHERE instance_server_id = '%s'
             AND instance_server_channel_id = '%s'
@@ -241,7 +241,7 @@ func GetSummaryDocs(param map[string]interface{}) ([]DocsStruct, error) {
         LEFT JOIN (
             SELECT employee_id
             , COUNT(*) AS withdraw_doc_count
-            , SUM(CASE WHEN approve_flag != '02' THEN 1 ELSE 0 END) AS withdraw_doc_disapprove_count
+            , SUM(CASE WHEN approve_flag NOT IN ('02', '03') THEN 1 ELSE 0 END) AS withdraw_doc_disapprove_count
             FROM %s.payroll_employee_withdraw_doc
             WHERE instance_server_id = '%s'
             AND instance_server_channel_id = '%s'
@@ -251,7 +251,7 @@ func GetSummaryDocs(param map[string]interface{}) ([]DocsStruct, error) {
         LEFT JOIN (
             SELECT employee_id
             , COUNT(*) AS petty_cash_count
-            , SUM(CASE WHEN approve_dt IS NULL THEN 1 ELSE 0 END) AS petty_cash_disapprove_count
+            , SUM(CASE WHEN document_flow_lv NOT IN ('02', '03', '04', '05') THEN 1 ELSE 0 END) AS petty_cash_disapprove_count
             FROM %s.payroll_petty_cash
             WHERE instance_server_id = '%s'
             AND instance_server_channel_id = '%s'
@@ -261,7 +261,7 @@ func GetSummaryDocs(param map[string]interface{}) ([]DocsStruct, error) {
         LEFT JOIN (
             SELECT employee_id
             , COUNT(*) AS salary_certificate_letter_count
-            , SUM(CASE WHEN approve_dt IS NULL THEN 1 ELSE 0 END) AS salary_certificate_letter_disapprove_count
+            , SUM(CASE WHEN document_flow_lv NOT IN ('02', '03', '04', '05') THEN 1 ELSE 0 END) AS salary_certificate_letter_disapprove_count
             FROM %s.payroll_salary_certificate_letter
             WHERE instance_server_id = '%s'
             AND instance_server_channel_id = '%s'
@@ -271,7 +271,7 @@ func GetSummaryDocs(param map[string]interface{}) ([]DocsStruct, error) {
         LEFT JOIN (
             SELECT employee_id
             , COUNT(*) AS work_certificate_letter_count
-            , SUM(CASE WHEN approve_dt IS NULL THEN 1 ELSE 0 END) AS work_certificate_letter_disapprove_count
+            , SUM(CASE WHEN document_flow_lv NOT IN ('02', '03', '04', '05') THEN 1 ELSE 0 END) AS work_certificate_letter_disapprove_count
             FROM %s.payroll_work_certificate_letter
             WHERE instance_server_id = '%s'
             AND instance_server_channel_id = '%s'
@@ -281,7 +281,7 @@ func GetSummaryDocs(param map[string]interface{}) ([]DocsStruct, error) {
         LEFT JOIN (
             SELECT employee_id
             , COUNT(*) AS welfare_count
-            , SUM(CASE WHEN approve_flag != '02' THEN 1 ELSE 0 END) AS welfare_disapprove_count
+            , SUM(CASE WHEN approve_flag NOT IN ('02', '03') THEN 1 ELSE 0 END) AS welfare_disapprove_count
             FROM %s.payroll_employee_welfare
             WHERE instance_server_id = '%s'
             AND instance_server_channel_id = '%s'
@@ -291,7 +291,7 @@ func GetSummaryDocs(param map[string]interface{}) ([]DocsStruct, error) {
         LEFT JOIN (
             SELECT informer_employee_id AS employee_id
             , COUNT(*) AS complaint_count
-            , 0 AS complaint_disapprove_count
+            , SUM(CASE WHEN complaint_status_lv NOT IN ('02') THEN 1 ELSE 0 END) AS complaint_disapprove_count
             FROM %s.payroll_employee_complaint
             WHERE instance_server_id = '%s'
             AND instance_server_channel_id = '%s'

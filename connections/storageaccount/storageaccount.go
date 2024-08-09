@@ -73,7 +73,7 @@ func (blobInstance storageaccount) UploadFile(containerName string, path string,
 			BlockSize:   int64(1024), // Block size in bytes
 			Concurrency: uint16(3),   // Number of concurrent uploads
 			Progress: func(bytesTransferred int64) {
-				fmt.Printf("Uploaded %d bytes\n", bytesTransferred)
+				fmt.Printf("Uploaded %s: %d bytes\n", fileName, bytesTransferred)
 			},
 		})
 	if err != nil {

@@ -20,7 +20,7 @@ func main() {
 	storageaccount.NewBlob()
 
 	years := []string{"2024"}
-	months := []string{"07", "08"}
+	months := []string{"05"}
 
 	channels, _ := sysinstanceserverchannelService.GetActiveChannel()
 	for _, ch := range channels {
